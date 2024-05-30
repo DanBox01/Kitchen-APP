@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitchen Inventory</title>
+    <style>
+        /* Add basic styling here */
+    </style>
+</head>
+<body>
+    <h1>Kitchen Inventory</h1>
+    <div id="inventory"></div>
+    
+    <h2>Add Ingredient</h2>
+    <form id="add-ingredient-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <input type="date" id="expiration_date">
+        <button type="submit">Add Ingredient</button>
+    </form>
+
+    <h2>Upload Receipt</h2>
+    <form id="upload-receipt-form" enctype="multipart/form-data">
+        <input type="file" id="receipt" accept="image/*" required>
+        <button type="submit">Upload Receipt</button>
+    </form>
+
+    <h2>Meal Plan</h2>
+    <button id="generate-meal-plan">Generate Meal Plan</button>
+    <div id="meal-plan"></div>
+
+    <h2>Grocery List</h2>
+    <input type="text" id="grocery-ingredients" placeholder="Comma-separated ingredients">
+    <button id="generate-grocery-list">Generate Grocery List</button>
+    <div id="grocery-list"></div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
