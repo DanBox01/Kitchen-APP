@@ -80,7 +80,7 @@ def upload_receipt():
     
     # Process the text and extract ingredients
     lines = text.split('\n')
-    for line in lines:
+    for line in lines, :
         match = re.match(r'(\d+)\s+(\w+)', line)
         if match:
             quantity = float(match.group(1))
@@ -119,10 +119,7 @@ def grocery_list():
     
     return jsonify(grocery_list)
 
-def create_app():
-    db.create_all()
-    return app
-
 if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True, host='0.0.0.0')

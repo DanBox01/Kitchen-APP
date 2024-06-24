@@ -119,10 +119,7 @@ def grocery_list():
     
     return jsonify(grocery_list)
 
-def create_app():
-    db.create_all()
-    return app
-
 if __name__ == '__main__':
-    app = create_app()
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
